@@ -1,0 +1,363 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-nav></app-nav>
+
+<div class="top-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text">
+        <h1>Kalkulator <strong>rizika</strong> za obolijevanje od kardiovaskularnih bolesti i dijabetesa tipa 2</h1>
+          <div class="description">
+            <p>
+             Ovdje možete dobiti informacije o Vašem<strong> riziku </strong>i sklonosti prema nekim bolestima. <br>
+             Jednostavno unesite<strong> Vaše podatke</strong> i kalkulator će Vam dati preporuke!
+            </p>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
+        <form role="form" action="" method="post" class="f1">
+          <h3>2 koraka za izračun</h3>
+
+          <div class="row">
+            <div class="f1-steps">
+              <div class="f1-progress">
+                <div class="f1-progress-line" data-now-value="50" data-number-of-steps="2" style="width: 50%;"></div>
+              </div>
+              <div class="f1-step active">
+                <div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                <p>Vaši podaci i nalazi</p>
+              </div>
+              <div class="f1-step">
+                <div class="f1-step-icon"><i class="fa fa-calculator"></i></div>
+                <p>Rizik</p>
+              </div>
+            </div>
+          </div>
+          
+          <router-outlet></router-outlet>
+
+          <fieldset>
+            <div class="row">
+              <div class="f1">
+                <h4>Vaši osnovni podaci:</h4>          
+                <div class="text-right">              
+                  <h4 class="col-xs-6 text-right">Spol:</h4>             
+                </div>
+
+                <div class="col-xs-6 text-left">
+                  <div class="radio radio-danger calculateBmi calculateWhr">
+                      <input type="radio" name="spol" id="muskarac" value="m" checked="checked">
+                      <label for="muskarac">
+                          Muškarac
+                      </label>
+                  </div>
+                  <div class="radio radio-danger calculateBmi calculateWhr">
+                      <input type="radio" name="spol" id="zena" value="f" >
+                      <label for="zena">
+                          Žena
+                      </label>
+                  </div>     
+                </div>
+                <p>Polja označena sa (<span style="font-weight: bold;">*</span>) su obavezna:</p>
+                <div class="form-group calculateBmi">
+                  <label for="f1-first-name">* <span style="font-weight: normal;">Dob:</span></label>
+                  <input type="text" name="f1-first-name" placeholder="(godine)" class="f1-first-name form-control calculateBFP allownumericwithdecimal mjere" id="dob" required autocomplete="off">
+                  <div class="message"></div>
+                </div>
+
+
+                
+                <div class="form-group">
+                  <input type="checkbox" name="fancy-checkbox-danger" id="fancy-checkbox-danger">
+                  <div class="btn-group">
+                    <label for="fancy-checkbox-danger" class="btn btncheck">
+                      <span class="glyphicon glyphicon-ok"></span>
+                      <span> </span>
+                    </label>
+                    <label for="fancy-checkbox-danger" class="btn btn-default active">
+                        Pušač
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="checkbox" name="fancy-checkbox-danger1" id="fancy-checkbox-danger1">
+                  <div class="btn-group">
+                    <label for="fancy-checkbox-danger1" class="btn btncheck">
+                      <span class="glyphicon glyphicon-ok"></span>
+                      <span> </span>
+                    </label>
+                    <label for="fancy-checkbox-danger1" class="btn btn-default active">
+                        Dijabetes
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="checkbox" name="fancy-checkbox-danger2" id="fancy-checkbox-danger2">
+                  <div class="btn-group">
+                    <label for="fancy-checkbox-danger2" class="btn btncheck">
+                      <span class="glyphicon glyphicon-ok"></span>
+                      <span> </span>
+                    </label>
+                    <label for="fancy-checkbox-danger2" class="btn btn-default active">
+                        Kardiovaskularni incident
+                    </label>
+                  </div>
+                </div>
+
+                <h4>Unesite Vaše tjelesne karakteristike:</h4>
+                <div class="form-group">
+                  <label for="Visina">* <span style="font-weight: normal;">Visina:</span></label>
+                  <input type="text" id="visina" name="" class="form-control calculateBmi allownumericwithdecimal mjere" placeholder="(cm)" required autocomplete="off">
+                  <div class="message"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="Masa">* <span style="font-weight: normal;">Masa:</span></label>
+                  <input type="text" id="masa" name="" class="form-control calculateBmi allownumericwithdecimal mjere" placeholder="(kg)" required autocomplete="off">
+                  <div class="message"></div>
+                </div>
+
+                <div id="bmiIndexFirstPage"></div>
+                <div class="form-group">
+                  <label for="Struk"><span style="font-weight: normal;">Opseg struka:</span></label>
+                  <input type="text" id="struk" name="" class="form-control calculateWhr allownumericwithdecimal validacijaRezultata" placeholder="(cm)" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                  <label for="Bokovi"><span style="font-weight: normal;">Opseg bokova:</span></label>
+                  <input type="text" id="bokovi" name="" class="form-control calculateWhr allownumericwithdecimal validacijaRezultata" placeholder="(cm)" required autocomplete="off">
+                </div>
+
+                <div class="whr2RezultatFirstPage"></div>
+                <div class="whrRezultatFirstPage"></div>
+              </div>
+            </div>
+          
+            <div class="row">
+              <div class="f1">
+                <div class="form-group">
+                  <h4>Biokemijski i imunokemijski parametri:</h4>
+                  <label for="glukozaId">* <span style="font-weight: normal;">Glukoza:</span></label>
+                  <input type="text" class="form-control calculateKks allownumericwithdecimal required" id="glukozaId" placeholder="(mmol/L)" required autocomplete="off">
+                  <div class="message"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inzulinId"><span style="font-weight: normal;">Inzulin:</span></label>
+                  <input type="text" class="form-control calculateKks allownumericwithdecimal validacijaRezultata" id="inzulinId" placeholder="(pmol/L)" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                  <label for="ukupniKolId">* <span style="font-weight: normal;">Ukupni kolesterol:</span></label>
+                  <input type="text" class="form-control calculateKks allownumericwithdecimal required" id="ukupniKolId" placeholder="(mmol/L)" required autocomplete="off">
+                  <div class="message"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ldlKolId">* <span style="font-weight: normal;">LDL kolesterol:</span></label>
+                  <input type="text" class="form-control calculateKks allownumericwithdecimal required" id="ldlKolId" placeholder="(mmol/L)" required autocomplete="off">
+                  <div class="message"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="hdlKolId">* <span style="font-weight: normal;">HDL kolesterol:</span></label>
+                  <input type="text" class="form-control calculateKks allownumericwithdecimal required" id="hdlKolId" placeholder="(mmol/L)" required autocomplete="off">
+                  <div class="message"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="trigliceridiId">* <span style="font-weight: normal;">Trigliceridi:</span></label>
+                  <input type="text" class="form-control calculateKks allownumericwithdecimal required" id="trigliceridiId" placeholder="(mmol/L)" required autocomplete="off">
+                  <div class="message"></div>
+                </div>
+
+                <div class="f1-buttons">
+                  <button type="button" class="btn btn-next">Dalje</button>
+                </div>
+                
+                <div class="faleMjere"></div>
+                <div class="faliNalaz"></div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <div class="row">
+              <div class="f1">
+                <div id="rezultatiBmiWhr">
+                <div class="form-group">
+                  <h4>Vaši rezultati:</h4>
+                  <hr>
+                  <h4>Rizik u odnosu na tjelesne karakteristike</h4>
+                  <div class="godineRezultat"></div>
+                  <div id="resultspola"></div>
+                  <div id="resultVisina"></div>
+                  <div id="resultMasa"></div>
+                  <div id="resultStruk"></div>
+                  <div id="resultBokovi"></div>
+                  <div id="rez-fancy-checkbox-danger"></div>
+                  <div id="rez-fancy-checkbox-danger1"></div>
+                  <div id="rez-fancy-checkbox-danger2"></div>
+                  <hr>
+                  <div id="bmiRezultat"></div>
+                  <p>Indeks tjelesne mase, predstavlja stupanj uhranjenosti osobe i jedan od parametara za procjenu rizika od nastanka kardiovaskularnih bolesti.</p>
+                  <div class="bmiTablicaOpis"></div>
+                  <div class="bmiTablicaRezultat"></div>
+                  <div class="stupanjBMI"></div>
+
+                  <div class="prepTMRezultat"></div>
+                  <div class="bfpRezultat"></div>
+                  <p>Postotak tjelesne masti izračunat na temelju dobi, spola, visine i težine predstavlja jedan od parametara za procjenu rizika od nastanka kardiovaskularnih bolesti.</p>
+                  <div class="bodyFatOpis"></div>
+                  <div class="stupanjBodyFat"></div>
+                  <div class="whrRezultat"></div>
+                  <div class="whr2Rezultat"></div>
+                  <div class="whrRizik"></div>
+                  <!--div class="whrOpis"></div-->
+                </div>
+                </div>
+                
+                <hr>
+
+                <div id="rezultatiKKS">
+                  <h4>Rizik u odnosu na biokemijske i imunokemijske parametre</h4>
+                  <div class="homaFaliInzulin">
+                    <div class="homaIrRezultat"></div>
+                    <div class="homaBetaRezultat"></div>
+
+                  </div>
+                  <div class="inzulinRezultat"></div>
+                  <div class="glukozaRezultat"></div>
+                  <div class="ukupniKolRezultat"></div>
+                  <div class="ldlKolRezultat"></div>
+                  <div class="hdlKolRezultat"></div>
+                  <div class="trigliceridiRezultat"></div>
+                  <hr>
+                  <div class="homaFaliInzulin">
+                    <div class="homaIrRezultat"></div>
+                    <div class="homaBetaRezultat"></div>
+                    <p>HOMA – IR je pokazatelj osjetljivosti stanica na djelovanje inzulina te marker inzulinske
+                      rezistencije, a HOMA – β je marker koji daje uvid u aktivnost beta – Langerhansonovih otočića
+                      odgovornih za proizvodnju inzulina u gušterači.
+                      <br>Ova dva parametra se računaju različitim omjerima
+                      glukoze i inzulina i predstavljaju jasan pokazatelj nastanka dijabetesa tipa 2 i do 10 godina prije
+                      pojave prvih simptoma i bolesti.</p>
+                    <div class="porukaHomaIrOpis"></div>
+                    <div class="stupanjHomaIr"></div>
+                    
+                    <div class="porukaHomaBetaOpis"></div>
+                    <div class="stupanjHomaBeta"></div>
+                  <hr>
+                  </div>
+                  
+                  <div class="glukozaRezultat"></div>
+                  <div class="porukaGlukozaOpis"></div>
+                  <div class="stupanjGlukoza"></div>
+                  <hr>
+                  <div class="ukupniKolRezultat"></div>
+                  <div class="ukupniKolOpis"></div>
+                  <div class="stupanjUkupniKol"></div>
+                  <hr>
+                  <div class="ldlKolRezultat"></div>
+                  <div class="ldlKolOpis"></div>
+                  <div class="stupanjLDLKol"></div>
+                  <hr>
+                  <div class="hdlKolRezultat"></div>
+                  <div class="hdlKolOpis"></div>
+                  <div class="stupanjHDLKol"></div>
+                  <hr>
+                  <div class="trigliceridiRezultat"></div>
+                  <div class="trigliceridiOpis"></div>
+                  <div class="stupanjTrigliceridi"></div>
+                  <hr>
+
+                  <h4>Ukupan stupanj rizika od nastanka kardiovaskularnih bolesti:</h4>
+                    <div id='ukupniRizikBroj'></div>
+                  <div class="parametriRizik">
+                    <div class='ukupniRizikOpis'></div>
+                  </div>
+                  <div class="faleParametri"></div>
+                </div>
+
+                <hr>
+                <p>Pošaljite rezultate na Vašu e-mail adresu:</p>
+                <div class="row">
+
+                  <div class="form-group col-xs-12 col-sm-7 pull-right">
+                    <label for="emailId"></label>
+                    <input type="email" class="form-control mailclass" id="email" placeholder="e-mail">
+                    <div id="mailUspjeh"></div>
+                  </div>
+                    <div class="form-group col-xs-12 col-sm-7 pull-right">
+                    <div id="mailUspjeh"></div>
+                  </div>
+
+                  <div class="f1-buttons col-xs-12">
+                    <button type="button" class="btn pull-left btn-danger">Natrag</button>
+
+                    <button type="button" id="sendRiskData" class="btn btn-primary">Pošalji</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <form id="riskDataForm" method="post">
+          <input type="hidden" id="mailTo" name="to" value="jozo.mihaljevic1@gmail.com">
+          <input type="hidden" id="mailSpol" name="spol">
+          <input type="hidden" id="mailDob" name="dob">
+          <input type="hidden" id="mailVisina" name="visina">
+          <input type="hidden" id="mailMasa" name="masa">
+          <input type="hidden" id="mailStruk" name="struk">
+          <input type="hidden" id="mailBokovi" name="bokovi">
+          <input type="hidden" id="mailPušač" name="Pušač">
+          <input type="hidden" id="mailDijabetes" name="Dijabetes">
+          <input type="hidden" id="mailIncident" name="Kardiovaskularni incident">
+          <input type="hidden" id="mailBmiIndex" name="BMI iznos">
+          <input type="hidden" id="mailBmiRizik" name="BMI rizik">
+          <input type="hidden" id="mailWhr2" name="WHR (struk/visina)">
+          <input type="hidden" id="mailWhr" name="WHR (struk/bokovi)">
+          <input type="hidden" id="mailPoruka1" name="Poruka BMI">
+          <input type="hidden" id="mailPoruka2" name="Opis BMI">
+          <input type="hidden" id="mailStupanjBMI" name="Stupanj BMI">
+          <input type="hidden" id="mailPrepTjelesnaMasa" name="Preporučena tjelesna masa">
+          <input type="hidden" id="mailBodyFatPostotak" name="BodyFat postotak">
+          <input type="hidden" id="mailPorukaBFP" name="Poruka BFP">
+          <input type="hidden" id="mailStupanjBMP" name="Stupanj rizika BFP">
+          <input type="hidden" id="mailHomaIr" name="Homa Ir">
+          <input type="hidden" id="mailHomaBeta" name="Homa β">
+          <input type="hidden" id="mailGlukoza" name="Glukoza">
+          <input type="hidden" id="mailInzulin" name="Inzulin">
+          <input type="hidden" id="mailUkupniKol" name="Ukupni kolesterol">
+          <input type="hidden" id="mailHdlKol" name="HDL kolesterol">
+          <input type="hidden" id="mailLdlKol" name="LDL kolesterol">
+          <input type="hidden" id="mailTrigliceridi" name="Trigliceridi">
+          <input type="hidden" id="mailPorukaHomaIr" name="Poruka Homa Ir">
+          <input type="hidden" id="mailStupanjHomaIr" name="Stupanj rizika Homa Ir">
+          <input type="hidden" id="mailPorukaHomaBeta" name="Poruka Homa β">
+          <input type="hidden" id="mailStupanjHomaBeta" name="Stupanj rizika Homa β">
+          <input type="hidden" id="mailPorukaGlukoza" name="Poruka glukoza">
+          <input type="hidden" id="mailStupanjGlukoza" name="Stupanj rizika glukoza">
+          <input type="hidden" id="mailPorukaUkupniKol" name="Poruka ukupni kolesterol">
+          <input type="hidden" id="mailStupanjKolesterol" name="Stupanj rizika kolesterol">
+          <input type="hidden" id="mailPorukaldlKol" name="Poruka LDL kolesterol">
+          <input type="hidden" id="mailStupanjLDL" name="Stupanj LDL rizika kolesterol">
+          <input type="hidden" id="mailPorukaHdlKol" name="Poruka HDL kolesterol">
+          <input type="hidden" id="mailStupanjHDL" name="Stupanj HDL rizika kolesteroel">
+          <input type="hidden" id="mailPorukaTrigliceridi" name="Poruka trigliceridi">
+          <input type="hidden" id="mailStupanjTrigliceridi" name="Stupanj rizika trigliceridi">
+          <input type="hidden" id="mailIfelseRizik" name="Ukupni rizik">
+          <input type="hidden" id="mailOpisUkupniRizik" name="Opis za ukupni rizik">
+        </form>
+      </div>
+    </div>      
+  </div>
+</div>
+
+<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 769px; width: 878px; z-index: -999999; position: fixed;"><img src="../assets/1.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 1153.5px; height: 769px; max-height: none; max-width: none; z-index: -999999; left: -137.75px; top: 0px;"></div>
+<app-osobni-form><app-osobni-form>
+<app-footer></app-footer>
