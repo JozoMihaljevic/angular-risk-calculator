@@ -1,24 +1,14 @@
+import { Spol } from './spol';
+
 export class Osobni {
   public dob: number;
   public visina: number;
   public masa: number;
   public struk: number;
   public bokovi: number;
-  public spol: string;
+  public spol: Spol;
 
-	constructor(
-    dob: number,
-    visina: number,
-    masa: number,
-    struk: number,
-    bokovi: number,
-    spol: string,
-  ) {
-    this.dob = dob;
-    this.visina = visina;
-    this.masa = masa;
-    this.struk = struk;
-    this.bokovi = bokovi;
-    this.spol = spol;
+	constructor() {
+    this.spol = Spol.Muško;
   }
 }
