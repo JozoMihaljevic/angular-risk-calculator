@@ -76,16 +76,16 @@
                 <label for="struk">Struk</label>
                 <input type="text" class="form-control" id="struk" name="struk"
                 [(ngModel)]="osobniPodaci.struk"
-                  #masa="ngModel"
-                  (ngModelChange)="racunajWHRstrukbokovi()">
+                #struk="ngModel"
+                (ngModelChange)="racunajWHRstrukbokovi()">
               </div>
 
               <div class="form-group">
                 <label for="bokovi">Bokovi</label>
                 <input type="text" class="form-control" id="bokovi" name="bokovi"
-                [(ngModel)]="osobniPodaci.masa"
-                  #masa="ngModel"
-                  (ngModelChange)="racunajWHRstrukvisina()">
+                [(ngModel)]="osobniPodaci.bokovi"
+                #bokovi="ngModel"
+                (ngModelChange)="racunajWHRstrukvisina()">
               </div>
             </div>
 
@@ -93,7 +93,10 @@
             <div class="f1">
               <div class="form-group">
                 <label for="glukoza">Glukoza</label>
-                <input [(ngModel)]="modelkks.glukoza" type="text" class="form-control" id="glukoza" name="glukoza" required #glukoza="ngModel">
+                <input type="text" class="form-control" id="glukoza" name="glukoza" required #glukoza="ngModel"
+                [(ngModel)]="krvnaSlika.glukoza"
+                (ngModelChange)="racunajHomaIr()"
+                (ngModelChange)="racunajHomaBeta()">
               </div>
               <div [hidden]="glukoza.valid || glukoza.pristine"
                 class="alert alert-danger">
@@ -102,12 +105,16 @@
 
               <div class="form-group">
                 <label for="inzulin">Inzulin</label>
-                <input [(ngModel)]="modelkks.inzulin" type="text" class="form-control" id="inzulin" name="inzulin">
+                <input type="text" class="form-control" id="inzulin" name="inzulin"
+                [(ngModel)]="krvnaSlika.inzulin"
+                #inzulin="ngModel"
+                (ngModelChange)="racunajHomaIr()"
+                (ngModelChange)="racunajHomaBeta()">
               </div>
 
               <div class="form-group">
                 <label for="ukupnikol">Ukupni kolesterol</label>
-                <input [(ngModel)]="modelkks.ukupnikol" type="text" class="form-control" id="ukupnikol" name="ukupnikol" required #ukupnikol="ngModel">
+                <input [(ngModel)]="krvnaSlika.ukupnikol" type="text" class="form-control" id="ukupnikol" name="ukupnikol" required #ukupnikol="ngModel">
               </div>
               <div [hidden]="ukupnikol.valid || ukupnikol.pristine"
                 class="alert alert-danger">
@@ -116,7 +123,7 @@
 
               <div class="form-group">
                 <label for="ldlkol">LDL kolesterol</label>
-                <input [(ngModel)]="modelkks.ldlkol" type="text" class="form-control" id="ldlkol" name="ldlkol" required #ldlkol="ngModel">
+                <input [(ngModel)]="krvnaSlika.ldlkol" type="text" class="form-control" id="ldlkol" name="ldlkol" required #ldlkol="ngModel">
               </div>
               <div [hidden]="ldlkol.valid || ldlkol.pristine"
                 class="alert alert-danger">
@@ -125,7 +132,7 @@
 
               <div class="form-group">
                 <label for="hdlkol">HDL kolesterol</label>
-                <input [(ngModel)]="modelkks.hdlkol" type="text" class="form-control" id="hdlkol" name="hdlkol" required #hdlkol="ngModel">
+                <input [(ngModel)]="krvnaSlika.hdlkol" type="text" class="form-control" id="hdlkol" name="hdlkol" required #hdlkol="ngModel">
               </div>
               <div [hidden]="hdlkol.valid || hdlkol.pristine"
                 class="alert alert-danger">
@@ -134,7 +141,7 @@
 
               <div class="form-group">
                 <label for="trigliceridi">Trigliceridi</label>
-                <input [(ngModel)]="modelkks.trigliceridi" type="text" class="form-control" id="trigliceridi" name="trigliceridi" required #trigliceridi="ngModel">
+                <input [(ngModel)]="krvnaSlika.trigliceridi" type="text" class="form-control" id="trigliceridi" name="trigliceridi" required #trigliceridi="ngModel">
               </div>
               <div [hidden]="trigliceridi.valid || trigliceridi.pristine"
                 class="alert alert-danger">
@@ -175,27 +182,27 @@
             </div>
             <div class="row">
               <div class="col-xs-4">Glukoza</div>
-              <div class="col-xs-8  pull-left">{{ modelkks.glukoza }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.glukoza }}</div>
             </div>
             <div class="row">
               <div class="col-xs-4">Inzulin</div>
-              <div class="col-xs-8  pull-left">{{ modelkks.inzulin }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.inzulin }}</div>
             </div>
             <div class="row">
               <div class="col-xs-4">Ukupni kolesterol</div>
-              <div class="col-xs-8  pull-left">{{ modelkks.ukupnikol }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.ukupnikol }}</div>
             </div>
             <div class="row">
               <div class="col-xs-4">LDL kolesterol</div>
-              <div class="col-xs-8  pull-left">{{ modelkks.ldlkol }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.ldlkol }}</div>
             </div>
             <div class="row">
               <div class="col-xs-4">HDL kolesterol</div>
-              <div class="col-xs-8  pull-left">{{ modelkks.hdlkol }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.hdlkol }}</div>
             </div>
             <div class="row">
               <div class="col-xs-4">Trigliceridi</div>
-              <div class="col-xs-8  pull-left">{{ modelkks.trigliceridi }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.trigliceridi }}</div>
             </div>
 
             <div class="row" *ngIf="bmi">
@@ -210,13 +217,13 @@
               <div class="col-xs-4">Vaš WHR2</div>
               <div class="col-xs-8  pull-left">{{ whr2.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="homaIr">
               <div class="col-xs-4">Homa IR</div>
-              <div class="col-xs-8  pull-left">{{ racunajHomaIr().toFixed(2) }}</div>
+              <div class="col-xs-8  pull-left">{{ homaIr.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="homaBeta">
               <div class="col-xs-4">Homa Beta</div>
-              <div class="col-xs-8  pull-left">{{ racunajHomaBeta().toFixed(2) }}</div>
+              <div class="col-xs-8  pull-left">{{ homaBeta.toFixed(2) }}</div>
             </div>
             <br>
             <button class="btn btn-primary" (click)="submitted=false">Natrag</button>

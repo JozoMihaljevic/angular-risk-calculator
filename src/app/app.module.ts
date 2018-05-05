@@ -13,6 +13,7 @@ import { OsobniFormComponent } from './osobni-form/osobni-form.component';
 
 import { BmiService } from './bmi.service';
 import { WhrService } from './whr.service';
+import { HomaService } from './homa.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { WhrService } from './whr.service';
   ],
   providers: [
     BmiService,
-    WhrService
+    WhrService,
+    HomaService
   ],
   bootstrap: [AppComponent]
 })

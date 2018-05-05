@@ -3,6 +3,7 @@ import { Osobni }    from '../osobni';
 import { KrvnaSlika } from '../krvnaslika';
 import { BmiService } from '../bmi.service';
 import { WhrService } from '../whr.service';
+import { HomaService } from '../homa.service';
 import { Spol } from '../spol';
 
 @Component({
@@ -11,18 +12,27 @@ import { Spol } from '../spol';
   styleUrls: ['./osobni-form.component.css']
 })
 export class OsobniFormComponent implements OnInit {
+
   spolovi: any[] = [
     { key: 'm', name: 'Muško'},
     { key: 'f', name: 'Žensko'},
   ];
+
   osobniPodaci: Osobni = new Osobni();
+  krvnaSlika: KrvnaSlika = new KrvnaSlika();
+
   bmi: number;
   whr: number;
   whr2: number;
-  modelkks = new KrvnaSlika(null, null, null, null, null, null);
+  homaIr: number;
+  homaBeta: number;
+  
   submitted = false;
 
-  constructor(private bmiService: BmiService, private whrService: WhrService) {
+  constructor(
+    private bmiService: BmiService,
+    private whrService: WhrService,
+    private homaService: HomaService) {
   }
 
   ngOnInit() {
@@ -30,7 +40,7 @@ export class OsobniFormComponent implements OnInit {
 
   ponistiUnos() {
     this.osobniPodaci = new Osobni();
-    this.modelkks = new KrvnaSlika(null, null, null, null, null, null);
+    this.krvnaSlika = new KrvnaSlika();
   }
 
   racunajBmi() {
@@ -47,11 +57,12 @@ export class OsobniFormComponent implements OnInit {
   }
 
   racunajHomaIr() {
-    return ((this.modelkks.glukoza * this.modelkks.inzulin) / 22.5);
+    this.homaIr = this.homaService.getHomaIr(this.krvnaSlika);
+    console.log(this.krvnaSlika);
   }
 
   racunajHomaBeta() {
-    return ((20 * this.modelkks.inzulin) / (this.modelkks.glukoza - 3.5) / 100);
+    this.homaBeta = this.homaService.getHomaBeta(this.krvnaSlika);
   }
 
   onSubmit() {
