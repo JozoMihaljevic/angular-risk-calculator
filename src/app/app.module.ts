@@ -12,6 +12,7 @@ import { NalazComponent } from './nalaz/nalaz.component';
 import { OsobniFormComponent } from './osobni-form/osobni-form.component';
 
 import { BmiService } from './bmi.service';
+import { WhrService } from './whr.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { BmiService } from './bmi.service';
   ],
   providers: [
     BmiService,
+    WhrService
   ],
   bootstrap: [AppComponent]
 })

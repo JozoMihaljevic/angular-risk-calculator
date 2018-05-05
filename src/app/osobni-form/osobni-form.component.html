@@ -74,12 +74,18 @@
 
               <div class="form-group">
                 <label for="struk">Struk</label>
-                <input [(ngModel)]="model.struk" type="text" class="form-control" id="struk" name="struk">
+                <input type="text" class="form-control" id="struk" name="struk"
+                [(ngModel)]="model.struk" 
+                #struk="ngModel"
+                (ngModelChange)="racunajWHRstrukbokovi()">
               </div>
 
               <div class="form-group">
                 <label for="bokovi">Bokovi</label>
-                <input [(ngModel)]="model.bokovi" type="text" class="form-control" id="bokovi" name="bokovi">
+                <input type="text" class="form-control" id="bokovi" name="bokovi"
+                [(ngModel)]="model.bokovi" 
+                #bokovi="ngModel"
+                (ngModelChange)="racunajWHRstrukvisina()">
               </div>
             </div>
 
@@ -194,15 +200,15 @@
 
             <div class="row" *ngIf="bmi">
               <div class="col-xs-4">Vaš BMI</div>
-              <div class="col-xs-8  pull-left">{{ bmi }}</div>
+              <div class="col-xs-8  pull-left">{{ bmi.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="whr">
               <div class="col-xs-4">Vaš WHR</div>
-              <div class="col-xs-8  pull-left">{{ racunajWHRstrukbokovi().toFixed(2) }}</div>
+              <div class="col-xs-8  pull-left">{{ whr.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="whr2">
               <div class="col-xs-4">Vaš WHR2</div>
-              <div class="col-xs-8  pull-left">{{ racunajWHRstrukvisina().toFixed(2) }}</div>
+              <div class="col-xs-8  pull-left">{{ whr2.toFixed(2) }}</div>
             </div>
             <div class="row">
               <div class="col-xs-4">Homa IR</div>

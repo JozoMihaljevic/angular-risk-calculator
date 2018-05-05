@@ -9,7 +9,7 @@ export class BmiService {
    * @param {Osobni} osobni
    */
   getBmi(osobni: Osobni) {
-    let bmi = osobni.masa/(osobni.visina/100 ** 2);
+    let bmi = osobni.masa/((osobni.visina/100) * (osobni.visina/100));
     return bmi;
   }
 }

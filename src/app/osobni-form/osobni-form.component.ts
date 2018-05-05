@@ -16,8 +16,10 @@ export class OsobniFormComponent implements OnInit {
   submitted = false;
 
   bmi: number;
+  whr: number;
+  whr2: number;
 
-  constructor(private bmiService: BmiService) {
+  constructor(private bmiService: BmiService, private whrService: WhrService) {
   }
 
   ngOnInit() {
@@ -33,15 +35,11 @@ export class OsobniFormComponent implements OnInit {
   }
 
   racunajWHRstrukbokovi() {
-    var whr = this.model.struk/this.model.bokovi;
-
-    return whr;
+    this.whr = this.whrService.getWhr(this.model);
   }
 
   racunajWHRstrukvisina() {
-    var whr2 = this.model.struk/this.model.visina;
-
-    return whr2;
+    this.whr2 = this.whrService.getWhr2(this.model);
   }
 
   racunajHomaIr() {
