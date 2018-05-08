@@ -12,6 +12,7 @@
             {{ osobniPodaci.masa }},
             {{ osobniPodaci.struk }},
             {{ osobniPodaci.bokovi }}
+            {{ bodyFatPostotak }}
 
             <div class="f1">
               <div class="form-group">
@@ -150,7 +151,11 @@
             </div>
 
             <button type="button" class="btn btn-primary" (click)="ponistiUnos(); heroForm.reset()">Poništi</button>
-            <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Dalje</button>
+            <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid"
+            (click)="prikaziBmiPoruku();
+            racunajBodyFatPostotak();
+            prikaziBodyFatPostotakPoruku();"
+            >Dalje</button>
           </form>
         </div>
 
@@ -208,6 +213,22 @@
             <div class="row" *ngIf="bmi">
               <div class="col-xs-4">Vaš BMI</div>
               <div class="col-xs-8  pull-left">{{ bmi.toFixed(2) }}</div>
+            </div>
+            <div class="row" *ngIf="bodyFatPostotak">
+              <div class="col-xs-4">Vaš BFP</div>
+              <div class="col-xs-8  pull-left">{{ bodyFatPostotak }}%</div>
+            </div>
+            <div class="row" *ngIf="preporucenaTjelesnaMasa">
+              <div class="col-xs-4">Vaša Preporučena TM</div>
+              <div class="col-xs-8  pull-left">{{ preporucenaTjelesnaMasa }}kg</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">BMI opis:</div>
+              <div class="col-xs-8  pull-left">{{ bmiPoruka }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">BodyFatPostotak poruka:</div>
+              <div class="col-xs-8  pull-left">{{ bodyFatPostotakPoruka }}</div>
             </div>
             <div class="row" *ngIf="whr">
               <div class="col-xs-4">Vaš WHR</div>

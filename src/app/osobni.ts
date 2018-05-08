@@ -9,6 +9,6 @@ export class Osobni {
   public spol: Spol;
 
 	constructor() {
-    this.spol = Spol.Muško;
+    this.spol = Spol.Muškarac;
   }
 }

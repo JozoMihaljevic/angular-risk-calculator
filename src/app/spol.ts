@@ -1,4 +1,4 @@
 export enum Spol {
-  Muško = 'm',
-  Žensko = 'f',
+  Muškarac = 'm',
+  Žena = 'f',
 }

@@ -14,14 +14,18 @@ import { Spol } from '../spol';
 export class OsobniFormComponent implements OnInit {
 
   spolovi: any[] = [
-    { key: 'm', name: 'Muško'},
-    { key: 'f', name: 'Žensko'},
+    { key: 'm', name: 'Muškarac'},
+    { key: 'f', name: 'Žena'},
   ];
 
   osobniPodaci: Osobni = new Osobni();
   krvnaSlika: KrvnaSlika = new KrvnaSlika();
 
   bmi: number;
+  bodyFatPostotak: string;
+  preporucenaTjelesnaMasa: string;
+  bodyFatPostotakPoruka: string;
+  bmiPoruka: string = 'asd';
   whr: number;
   whr2: number;
   homaIr: number;
@@ -46,6 +50,22 @@ export class OsobniFormComponent implements OnInit {
   racunajBmi() {
     this.bmi = this.bmiService.getBmi(this.osobniPodaci);
     console.log(this.osobniPodaci);
+  }
+
+  racunajBodyFatPostotak() {
+    this.bodyFatPostotak = this.bmiService.getBodyFatPostotak(this.osobniPodaci, this.bmi)
+  }
+
+  racunajPreporucenaTjelesnaMasa() {
+    this.preporucenaTjelesnaMasa = this.bmiService.getPreporucenaTjelesnaMasa(this.osobniPodaci)
+  }
+
+  prikaziBmiPoruku() {
+    this.bmiPoruka = this.bmiService.bmiPoruka(this.bmi)
+  }
+
+  prikaziBodyFatPostotakPoruku() {
+    this.bodyFatPostotakPoruka = this.bmiService.bodyFatPostotakPoruka(this.bodyFatPostotak)
   }
 
   racunajWHRstrukbokovi() {
