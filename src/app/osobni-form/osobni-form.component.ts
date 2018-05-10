@@ -23,13 +23,16 @@ export class OsobniFormComponent implements OnInit {
 
   bmi: number;
   bodyFatPostotak: string;
-  preporucenaTjelesnaMasa: string;
+  preporucenaTjelesnaMasa: number;
   bodyFatPostotakPoruka: string;
-  bmiPoruka: string = 'asd';
+  bmiPoruka: string;
   whr: number;
+  whrPoruka: string;
   whr2: number;
   homaIr: number;
+  homaIrPoruka: string;
   homaBeta: number;
+  homaBetaPoruka: string;
   
   submitted = false;
 
@@ -65,11 +68,15 @@ export class OsobniFormComponent implements OnInit {
   }
 
   prikaziBodyFatPostotakPoruku() {
-    this.bodyFatPostotakPoruka = this.bmiService.bodyFatPostotakPoruka(this.bodyFatPostotak)
+    this.bodyFatPostotakPoruka = this.bmiService.bodyFatPostotakPoruka(this.bodyFatPostotak, this.osobniPodaci)
   }
 
   racunajWHRstrukbokovi() {
     this.whr = this.whrService.getWhr(this.osobniPodaci);
+  }
+
+  prikaziWHRPoruku() {
+    this.whrPoruka = this.whrService.whrPoruka(this.osobniPodaci, this.whr);
   }
 
   racunajWHRstrukvisina() {
@@ -81,8 +88,16 @@ export class OsobniFormComponent implements OnInit {
     console.log(this.krvnaSlika);
   }
 
+  prikaziHomaIrPoruku() {
+    this.homaIrPoruka = this.homaService.homaIrPoruka(this.homaIr);
+  }
+
   racunajHomaBeta() {
     this.homaBeta = this.homaService.getHomaBeta(this.krvnaSlika);
+  }
+
+  prikaziHomaBetaPoruku() {
+    this.homaBetaPoruka = this.homaService.homaBetaPoruka(this.homaBeta);
   }
 
   onSubmit() {
