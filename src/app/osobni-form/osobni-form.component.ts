@@ -40,6 +40,8 @@ export class OsobniFormComponent implements OnInit {
   ldlKolesterolPoruka: string;
   hdlKolesterolPoruka: string;
   trigliceridiPoruka: string;
+  rizikKks: string;
+
   
   submitted = false;
 
@@ -76,6 +78,7 @@ export class OsobniFormComponent implements OnInit {
     this.prikaziLdlKolesterolPoruka();
     this.prikaziHdlKolesterolPoruka();
     this.prikaziTrigliceridiPoruka();
+    this.prikaziRizik();
   }
 
   racunajBmi() {
@@ -146,6 +149,10 @@ export class OsobniFormComponent implements OnInit {
 
   prikaziTrigliceridiPoruka() {
     this.trigliceridiPoruka = this.krvnaSlikaService.trigliceridiPoruka(this.krvnaSlika)
+  }
+
+  prikaziRizik() {
+    this.rizikKks = this.krvnaSlikaService.getRizikKKS();
   }
 
   onSubmit() {
