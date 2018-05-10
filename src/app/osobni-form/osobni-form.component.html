@@ -158,7 +158,10 @@
             racunajPreporucenaTjelesnaMasa();
             prikaziHomaIrPoruku();
             prikaziHomaBetaPoruku();
-            prikaziWHRPoruku()"
+            prikaziWHRPoruku();
+            prikaziGlukozaPoruku();
+            prikaziUkupniKolesterolPoruka();
+            prikaziLdlKolesterolPoruka()"
             >Dalje</button>
           </form>
         </div>
@@ -262,6 +265,19 @@
               <div class="col-xs-4">Homa Beta poruka</div>
               <div class="col-xs-8  pull-left">{{ homaBetaPoruka }}</div>
             </div>
+            <div class="row">
+              <div class="col-xs-4">Glukoza poruka</div>
+              <div class="col-xs-8  pull-left">{{ glukozaPoruka }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">Ukupni kolesterol poruka</div>
+              <div class="col-xs-8  pull-left">{{ ukupniKolesterolPoruka }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">LDL kolesterol poruka</div>
+              <div class="col-xs-8  pull-left">{{ ldlKolesterolPoruka }}</div>
+            </div>
+
             <br>
             <button class="btn btn-primary" (click)="submitted=false">Natrag</button>
         </div>

@@ -14,6 +14,7 @@ import { OsobniFormComponent } from './osobni-form/osobni-form.component';
 import { BmiService } from './bmi.service';
 import { WhrService } from './whr.service';
 import { HomaService } from './homa.service';
+import { KrvnaSlikaService } from './krvna-slika.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { HomaService } from './homa.service';
   providers: [
     BmiService,
     WhrService,
-    HomaService
+    HomaService,
+    KrvnaSlikaService
   ],
   bootstrap: [AppComponent]
 })

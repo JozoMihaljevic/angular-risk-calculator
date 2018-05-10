@@ -4,6 +4,8 @@ import { KrvnaSlika } from '../krvnaslika';
 import { BmiService } from '../bmi.service';
 import { WhrService } from '../whr.service';
 import { HomaService } from '../homa.service';
+import { KrvnaSlikaService } from '../krvna-slika.service';
+
 import { Spol } from '../spol';
 
 @Component({
@@ -33,13 +35,17 @@ export class OsobniFormComponent implements OnInit {
   homaIrPoruka: string;
   homaBeta: number;
   homaBetaPoruka: string;
+  glukozaPoruka: string;
+  ukupniKolesterolPoruka: string;
+  ldlKolesterolPoruka: string;
   
   submitted = false;
 
   constructor(
     private bmiService: BmiService,
     private whrService: WhrService,
-    private homaService: HomaService) {
+    private homaService: HomaService,
+    private krvnaSlikaService: KrvnaSlikaService) {
   }
 
   ngOnInit() {
@@ -98,6 +104,18 @@ export class OsobniFormComponent implements OnInit {
 
   prikaziHomaBetaPoruku() {
     this.homaBetaPoruka = this.homaService.homaBetaPoruka(this.homaBeta);
+  }
+
+  prikaziGlukozaPoruku() {
+    this.glukozaPoruka = this.krvnaSlikaService.glukozaPoruka(this.krvnaSlika)
+  }
+
+  prikaziUkupniKolesterolPoruka() {
+    this.ukupniKolesterolPoruka = this.krvnaSlikaService.ukupniKolPoruka(this.krvnaSlika)
+  }
+
+  prikaziLdlKolesterolPoruka() {
+    this.ldlKolesterolPoruka = this.krvnaSlikaService.ldlKolPoruka(this.krvnaSlika)
   }
 
   onSubmit() {
