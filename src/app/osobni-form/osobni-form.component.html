@@ -152,16 +152,7 @@
 
             <button type="button" class="btn btn-primary" (click)="ponistiUnos(); heroForm.reset()">Poništi</button>
             <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid"
-            (click)="prikaziBmiPoruku();
-            racunajBodyFatPostotak();
-            prikaziBodyFatPostotakPoruku();
-            racunajPreporucenaTjelesnaMasa();
-            prikaziHomaIrPoruku();
-            prikaziHomaBetaPoruku();
-            prikaziWHRPoruku();
-            prikaziGlukozaPoruku();
-            prikaziUkupniKolesterolPoruka();
-            prikaziLdlKolesterolPoruka()"
+            (click)="racunajPrikazi()"
             >Dalje</button>
           </form>
         </div>
@@ -276,6 +267,14 @@
             <div class="row">
               <div class="col-xs-4">LDL kolesterol poruka</div>
               <div class="col-xs-8  pull-left">{{ ldlKolesterolPoruka }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">HDL kolesterol poruka</div>
+              <div class="col-xs-8  pull-left">{{ hdlKolesterolPoruka }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">Trigliceridi poruka</div>
+              <div class="col-xs-8  pull-left">{{ trigliceridiPoruka }}</div>
             </div>
 
             <br>

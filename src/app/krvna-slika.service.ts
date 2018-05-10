@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { KrvnaSlika } from './krvnaslika';
+import { Osobni } from './osobni';
 
 @Injectable()
 export class KrvnaSlikaService {
@@ -45,5 +46,35 @@ export class KrvnaSlikaService {
       porukaldlKolesterol = 'Vrijednost iznad referentnih vrijednosti.x>5';    
     }
     return porukaldlKolesterol;
+  }
+
+  hdlKolPoruka(krvnaSlika: KrvnaSlika, osobni: Osobni) {
+  	let porukahdlKolesterol;
+  	if (osobni.spol == 'm') {
+      if (1 <= krvnaSlika.hdlkol) {
+        porukahdlKolesterol = 'Vrijednost unutar referentnih intervala. 1<x';              
+      } else {
+        porukahdlKolesterol = 'Vrijednost ispod referentnih vrijednosti.x>1';           
+      }
+    } else {
+      if (1.2 <= krvnaSlika.hdlkol) {
+        porukahdlKolesterol = 'Vrijednost unutar referentnih intervala.1.2<x';              
+      } else {
+        porukahdlKolesterol = 'Vrijednost ispod referentnih vrijednosti.x>1.2';              
+      }
+    }
+    return porukahdlKolesterol;    
+  }
+
+  trigliceridiPoruka(krvnaSlika: KrvnaSlika) {
+  	let porukaTrigliceridi;
+  	if (krvnaSlika.trigliceridi < 1.7) {
+        porukaTrigliceridi = 'Vrijednost unutar referentnih intervala.x<1.7';       
+    } else if (1.7 <= krvnaSlika.trigliceridi && krvnaSlika.trigliceridi < 3) {
+        porukaTrigliceridi = 'Vrijednost iznad referentnih vrijednosti.1.7<x<3'       
+    } else {
+        porukaTrigliceridi = 'Vrijednost iznad referentnih vrijednosti.x>3'       
+    }
+    return porukaTrigliceridi;
   }
 }

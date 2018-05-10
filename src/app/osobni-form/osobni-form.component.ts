@@ -38,6 +38,8 @@ export class OsobniFormComponent implements OnInit {
   glukozaPoruka: string;
   ukupniKolesterolPoruka: string;
   ldlKolesterolPoruka: string;
+  hdlKolesterolPoruka: string;
+  trigliceridiPoruka: string;
   
   submitted = false;
 
@@ -54,6 +56,26 @@ export class OsobniFormComponent implements OnInit {
   ponistiUnos() {
     this.osobniPodaci = new Osobni();
     this.krvnaSlika = new KrvnaSlika();
+  }
+
+  racunajPrikazi() {
+    this.racunajBmi();
+    this.racunajBodyFatPostotak();
+    this.racunajPreporucenaTjelesnaMasa();
+    this.prikaziBmiPoruku();
+    this.prikaziBodyFatPostotakPoruku();
+    this.racunajWHRstrukbokovi();
+    this.prikaziWHRPoruku();
+    this.racunajWHRstrukvisina();
+    this.racunajHomaIr();
+    this.prikaziHomaIrPoruku();
+    this.racunajHomaBeta();
+    this.prikaziHomaBetaPoruku();
+    this.prikaziGlukozaPoruku();
+    this.prikaziUkupniKolesterolPoruka();
+    this.prikaziLdlKolesterolPoruka();
+    this.prikaziHdlKolesterolPoruka();
+    this.prikaziTrigliceridiPoruka();
   }
 
   racunajBmi() {
@@ -116,6 +138,14 @@ export class OsobniFormComponent implements OnInit {
 
   prikaziLdlKolesterolPoruka() {
     this.ldlKolesterolPoruka = this.krvnaSlikaService.ldlKolPoruka(this.krvnaSlika)
+  }
+
+  prikaziHdlKolesterolPoruka() {
+    this.hdlKolesterolPoruka = this.krvnaSlikaService.hdlKolPoruka(this.krvnaSlika, this.osobniPodaci)
+  }
+
+  prikaziTrigliceridiPoruka() {
+    this.trigliceridiPoruka = this.krvnaSlikaService.trigliceridiPoruka(this.krvnaSlika)
   }
 
   onSubmit() {
