@@ -15,6 +15,7 @@ import { BmiService } from './bmi.service';
 import { WhrService } from './whr.service';
 import { HomaService } from './homa.service';
 import { KrvnaSlikaService } from './krvna-slika.service';
+import { KalkulatorRizikaService } from './kalkulatorRizika.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { KrvnaSlikaService } from './krvna-slika.service';
     BmiService,
     WhrService,
     HomaService,
-    KrvnaSlikaService
+    KrvnaSlikaService,
+    KalkulatorRizikaService
   ],
   bootstrap: [AppComponent]
 })

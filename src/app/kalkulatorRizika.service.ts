@@ -12,4 +12,16 @@ export class KalkulatorRizikaService {
   // updateData(fastPreview) {
   //   this.dataObs$.next(fastPreview);
   // }
+ukupniRizik: number;
+ukupniRizikPostotak: number;
+
+  racunajUkupniRizik(rizikKks, rizikHoma, rizikWHR, rizikBMI) {
+    this.ukupniRizik = rizikBMI + rizikWHR + rizikHoma + rizikKks;
+    return  this.ukupniRizik;
+  }
+
+  racunajUkupniRizikPostotak() {
+  	this.ukupniRizikPostotak = this.ukupniRizik/36;
+  	return this.ukupniRizikPostotak;
+  }
 }

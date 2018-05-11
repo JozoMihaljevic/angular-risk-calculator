@@ -5,6 +5,7 @@ import { BmiService } from '../bmi.service';
 import { WhrService } from '../whr.service';
 import { HomaService } from '../homa.service';
 import { KrvnaSlikaService } from '../krvna-slika.service';
+import { KalkulatorRizikaService } from '../kalkulatorRizika.service';
 
 import { Spol } from '../spol';
 
@@ -45,6 +46,9 @@ export class OsobniFormComponent implements OnInit {
   rizikWHR: number;
   rizikBMI: number;
   rizikUkupni: number;
+  rizikUkupniPostotak: number;
+  
+  
 
   
   submitted = false;
@@ -53,7 +57,8 @@ export class OsobniFormComponent implements OnInit {
     private bmiService: BmiService,
     private whrService: WhrService,
     private homaService: HomaService,
-    private krvnaSlikaService: KrvnaSlikaService) {
+    private krvnaSlikaService: KrvnaSlikaService,
+    private kalkulatorRizikaService: KalkulatorRizikaService) {
   }
 
   ngOnInit() {
@@ -83,7 +88,8 @@ export class OsobniFormComponent implements OnInit {
     this.prikaziHdlKolesterolPoruka();
     this.prikaziTrigliceridiPoruka();
     this.prikaziRizik();
-    this.racunajUkupniRizik();
+    this.prikaziUkupniRizik();
+    this.prikaziUkupniRizikPostotak();
   }
 
   racunajBmi() {
@@ -163,15 +169,12 @@ export class OsobniFormComponent implements OnInit {
     this.rizikBMI = this.bmiService.getRizikBMIBFP();
   }
 
-  racunajUkupniRizik() {
-    this.rizikUkupni =  this.rizikBMI +
-                        this.rizikWHR +
-                        this.rizikHoma +
-                        this.rizikKks;
+  prikaziUkupniRizik() {
+    this.rizikUkupni = this.kalkulatorRizikaService.racunajUkupniRizik(this.rizikKks, this.rizikHoma, this.rizikWHR, this.rizikBMI);
+  }
 
-    console.log(this.rizikUkupni);
-
-    return this.rizikUkupni;   
+  prikaziUkupniRizikPostotak() {
+    this.rizikUkupniPostotak = this.kalkulatorRizikaService.racunajUkupniRizikPostotak();
   }
 
   onSubmit() {
