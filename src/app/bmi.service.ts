@@ -8,6 +8,10 @@ export class BmiService {
    *
    * @param {Osobni} osobni
    */
+
+stupanjBMI: number;
+stupanjBFP: number;
+
   getBmi(osobni: Osobni) {
     let bmi = osobni.masa/((osobni.visina/100) * (osobni.visina/100));
     return bmi;
@@ -34,21 +38,29 @@ export class BmiService {
   	let porukaBmi: string;
 		if (bmi <= 18.4) {
       porukaBmi = 'Tjelesna masa ispod preporučene, rizik u odnosu na BMI: Nizak';
+      this.stupanjBMI = 0; 
     } else if (18.5 <= bmi && bmi < 24.9) {
       porukaBmi = 'Idealna tjelesna masa, rizik u odnosu na BMI: Normalan';
+      this.stupanjBMI = 0;
     } else if (25 <= bmi && bmi < 29.9) {
       porukaBmi = 'Povišena tjelesna masa, rizik u odnosu na BMI: Povišen';
+      this.stupanjBMI = 1;
     } else if (30.0 <= bmi && bmi < 34.9) {
       porukaBmi = 'Prekomjerna tjelesna masa (gojaznost, pretilost) 1. stupnja!!! Rizik u odnosu na BMI: Visok';
+      this.stupanjBMI = 2;
     } else if (35 <= bmi && bmi < 45) {
       porukaBmi = 'Prekomjerna tjelesna masa (gojaznost, pretilost) 2. stupnja!!! Rizik u odnosu na BMI: Visok';
+      this.stupanjBMI = 3;
     } else if (35 <= bmi && bmi < 45) {
       porukaBmi = 'Prekomjerna tjelesna masa (gojaznost, pretilost) 2. stupnja!!! Rizik u odnosu na BMI: Visok';
+      this.stupanjBMI = 4;
     } else if (45 <= bmi) {
       porukaBmi = 'Prekomjerna tjelesna masa (gojaznost, pretilost) 3. stupnja!!! Rizik u odnosu na BMI: Visok';
+      this.stupanjBMI = 4;
     }
       else {
       porukaBmi = 'Prekomjerna tjelesna masa (gojaznost, pretilost) 3. stupnja!!! Rizik u odnosu na BMI: Visok';
+      this.stupanjBMI = 4;
     }
     return porukaBmi;
   }
@@ -59,32 +71,54 @@ export class BmiService {
     if (osobni.spol == 'm') {
       if (bodyFatPostotak < 6) {
         porukaBodyFatPostotak = 'Rizik za nastanak kardiovaskularnih bolesti u odnosu na postotak tjelesnih masti: Nizak';
+        this.stupanjBFP = 0;
       } else if (7 < bodyFatPostotak && bodyFatPostotak < 13) {
         porukaBodyFatPostotak = 'Rizik za nastanak kardiovaskularnih bolesti u odnosu na postotak tjelesnih masti: Nizak';
+        this.stupanjBFP = 0;
       } else if (14 < bodyFatPostotak && bodyFatPostotak < 17) {
         porukaBodyFatPostotak = 'Rizik za nastanak kardiovaskularnih bolesti u odnosu na postotak tjelesnih masti: Normalan';
+        this.stupanjBFP = 1;
       } else if (18 < bodyFatPostotak && bodyFatPostotak < 22) {
         porukaBodyFatPostotak = 'Rizik za nastanak kardiovaskularnih bolesti u odnosu na postotak tjelesnih masti: Povišen';
+        this.stupanjBFP = 2;
       } else if (23 < bodyFatPostotak && bodyFatPostotak < 29) {
         porukaBodyFatPostotak = 'Rizik za nastanak kardiovaskularnih bolesti u odnosu na postotak tjelesnih masti: Povišen';
+        this.stupanjBFP = 3;
       } else {
         porukaBodyFatPostotak = 'Rizik za nastanak kardiovaskularnih bolesti u odnosu na postotak tjelesnih masti: Visok';
+        this.stupanjBFP = 4;
       }
     } else {
       if (bodyFatPostotak <= 13) {
         porukaBodyFatPostotak = 'Rizik u odnosu na postotak tjelesnih masti: Nizak</span>';
+        this.stupanjBFP = 0;
       } else if (14 <= bodyFatPostotak && bodyFatPostotak <= 20) {
         porukaBodyFatPostotak = 'Rizik u odnosu na postotak tjelesnih masti: Nizak';
+        this.stupanjBFP = 0;
       } else if (21 <= bodyFatPostotak && bodyFatPostotak <= 25) {
         porukaBodyFatPostotak = 'Rizik u odnosu na postotak tjelesnih masti: Normalan';
+        this.stupanjBFP = 1;
       } else if (26 <= bodyFatPostotak && bodyFatPostotak <= 31) {
         porukaBodyFatPostotak = 'Rizik u odnosu na postotak tjelesnih masti: Povišen';
+        this.stupanjBFP = 2;
       } else if (32 <= bodyFatPostotak && bodyFatPostotak <= 39) {
         porukaBodyFatPostotak = 'Rizik u odnosu na postotak tjelesnih masti: Povišen';
+        this.stupanjBFP = 3;
       } else {
         porukaBodyFatPostotak = 'Rizik u odnosu na postotak tjelesnih masti: Visok';
+        this.stupanjBFP = 4;
       }
     }
     return porukaBodyFatPostotak;
+  }
+
+  getRizikBMIBFP() {
+    let stupanjRizikaBMIBFP;
+
+    stupanjRizikaBMIBFP = this.stupanjBMI + this.stupanjBFP;
+
+    console.log(stupanjRizikaBMIBFP);
+
+    return stupanjRizikaBMIBFP;
   }
 }

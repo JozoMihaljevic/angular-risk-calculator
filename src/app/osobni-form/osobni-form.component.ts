@@ -40,7 +40,11 @@ export class OsobniFormComponent implements OnInit {
   ldlKolesterolPoruka: string;
   hdlKolesterolPoruka: string;
   trigliceridiPoruka: string;
-  rizikKks: string;
+  rizikKks: number;
+  rizikHoma: number;
+  rizikWHR: number;
+  rizikBMI: number;
+  rizikUkupni: number;
 
   
   submitted = false;
@@ -79,6 +83,7 @@ export class OsobniFormComponent implements OnInit {
     this.prikaziHdlKolesterolPoruka();
     this.prikaziTrigliceridiPoruka();
     this.prikaziRizik();
+    this.racunajUkupniRizik();
   }
 
   racunajBmi() {
@@ -153,6 +158,20 @@ export class OsobniFormComponent implements OnInit {
 
   prikaziRizik() {
     this.rizikKks = this.krvnaSlikaService.getRizikKKS();
+    this.rizikHoma = this.homaService.getRizikHoma();
+    this.rizikWHR = this.whrService.getRizikWHR();
+    this.rizikBMI = this.bmiService.getRizikBMIBFP();
+  }
+
+  racunajUkupniRizik() {
+    this.rizikUkupni =  this.rizikBMI +
+                        this.rizikWHR +
+                        this.rizikHoma +
+                        this.rizikKks;
+
+    console.log(this.rizikUkupni);
+
+    return this.rizikUkupni;   
   }
 
   onSubmit() {
