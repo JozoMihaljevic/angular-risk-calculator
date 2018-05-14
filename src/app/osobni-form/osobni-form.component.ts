@@ -47,6 +47,7 @@ export class OsobniFormComponent implements OnInit {
   rizikBMI: number;
   rizikUkupni: number;
   rizikUkupniPostotak: number;
+  rizikUkupniPoruka: string;
   
   
 
@@ -90,6 +91,7 @@ export class OsobniFormComponent implements OnInit {
     this.prikaziRizik();
     this.prikaziUkupniRizik();
     this.prikaziUkupniRizikPostotak();
+    this.prikaziUkupniRizikPoruku();
   }
 
   racunajBmi() {
@@ -171,6 +173,10 @@ export class OsobniFormComponent implements OnInit {
 
   prikaziUkupniRizik() {
     this.rizikUkupni = this.kalkulatorRizikaService.racunajUkupniRizik(this.rizikKks, this.rizikHoma, this.rizikWHR, this.rizikBMI);
+  }
+
+  prikaziUkupniRizikPoruku() {
+    this.rizikUkupniPoruka = this.kalkulatorRizikaService.ukupniRizikPoruka(this.rizikUkupni);
   }
 
   prikaziUkupniRizikPostotak() {
