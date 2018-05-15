@@ -11,7 +11,7 @@
             {{ osobniPodaci.visina }},
             {{ osobniPodaci.masa }},
             {{ osobniPodaci.struk }},
-            {{ osobniPodaci.bokovi }}
+            {{ osobniPodaci.bokovi }},
             {{ bodyFatPostotak }}
 
             <div class="f1">
@@ -207,7 +207,7 @@
               <div class="col-xs-4">Trigliceridi</div>
               <div class="col-xs-8  pull-left">{{ krvnaSlika.trigliceridi }}</div>
             </div>
-
+            <hr>
             <div class="row" *ngIf="bmi">
               <div class="col-xs-4">Vaš BMI</div>
               <div class="col-xs-8  pull-left">{{ bmi.toFixed(2) }}</div>
@@ -220,14 +220,17 @@
               <div class="col-xs-4">Vaša Preporučena TM</div>
               <div class="col-xs-8  pull-left">{{ preporucenaTjelesnaMasa }}kg</div>
             </div>
+            <hr>
             <div class="row">
               <div class="col-xs-4">BMI opis:</div>
               <div class="col-xs-8  pull-left">{{ bmiPoruka }}</div>
             </div>
+            <hr>
             <div class="row">
               <div class="col-xs-4">BodyFatPostotak poruka:</div>
               <div class="col-xs-8  pull-left">{{ bodyFatPostotakPoruka }}</div>
             </div>
+            <hr>
             <div class="row" *ngIf="whr">
               <div class="col-xs-4">Vaš WHR</div>
               <div class="col-xs-8  pull-left">{{ whr.toFixed(2) }}</div>
@@ -236,10 +239,12 @@
               <div class="col-xs-4">WHR poruka</div>
               <div class="col-xs-8  pull-left">{{ whrPoruka }}</div>
             </div>
+            <hr>
             <div class="row" *ngIf="whr2">
               <div class="col-xs-4">Vaš WHR2</div>
               <div class="col-xs-8  pull-left">{{ whr2.toFixed(2) }}</div>
             </div>
+            <hr>
             <div class="row" *ngIf="homaIr">
               <div class="col-xs-4">Homa IR</div>
               <div class="col-xs-8  pull-left">{{ homaIr.toFixed(2) }}</div>
@@ -248,34 +253,41 @@
               <div class="col-xs-4">Homa IR poruka</div>
               <div class="col-xs-8  pull-left">{{ homaIrPoruka }}</div>
             </div>
+            <hr>
             <div class="row" *ngIf="homaBeta">
-              <div class="col-xs-4">Homa Beta</div>
-              <div class="col-xs-8  pull-left">{{ homaBeta.toFixed(2) }}</div>
+              <div class="col-xs-12">Homa Beta</div>
+              <div class="col-xs-12  pull-left">{{ homaBeta.toFixed(2) }}</div>
             </div>
             <div class="row">
-              <div class="col-xs-4">Homa Beta poruka</div>
-              <div class="col-xs-8  pull-left">{{ homaBetaPoruka }}</div>
+              <div class="col-xs-12">Homa Beta poruka</div>
+              <div class="col-xs-12  pull-left">{{ homaBetaPoruka }}</div>
             </div>
+            <hr>
             <div class="row">
-              <div class="col-xs-4">Glukoza poruka</div>
-              <div class="col-xs-8  pull-left">{{ glukozaPoruka }}</div>
+              <div class="col-xs-12">Glukoza poruka</div>
+              <div class="col-xs-12  pull-left">{{ glukozaPoruka }}</div>
             </div>
+            <hr>
             <div class="row">
-              <div class="col-xs-4">Ukupni kolesterol poruka</div>
-              <div class="col-xs-8  pull-left">{{ ukupniKolesterolPoruka }}</div>
+              <div class="col-xs-12">Ukupni kolesterol poruka</div>
+              <div class="col-xs-12  pull-left">{{ ukupniKolesterolPoruka }}</div>
             </div>
+            <hr>
             <div class="row">
-              <div class="col-xs-4">LDL kolesterol poruka</div>
-              <div class="col-xs-8  pull-left">{{ ldlKolesterolPoruka }}</div>
+              <div class="col-xs-12">LDL kolesterol poruka</div>
+              <div class="col-xs-12  pull-left">{{ ldlKolesterolPoruka }}</div>
             </div>
+            <hr>
             <div class="row">
-              <div class="col-xs-4">HDL kolesterol poruka</div>
-              <div class="col-xs-8  pull-left">{{ hdlKolesterolPoruka }}</div>
+              <div class="col-xs-12">HDL kolesterol poruka</div>
+              <div class="col-xs-12  pull-left">{{ hdlKolesterolPoruka }}</div>
             </div>
+            <hr>
             <div class="row">
-              <div class="col-xs-4">Trigliceridi poruka</div>
-              <div class="col-xs-8  pull-left">{{ trigliceridiPoruka }}</div>
+              <div class="col-xs-12">Trigliceridi poruka</div>
+              <div class="col-xs-12  pull-left">{{ trigliceridiPoruka }}</div>
             </div>
+            <hr>
             <div class="row">
               <div class="col-xs-4">Rizik od KKS</div>
               <div class="col-xs-8  pull-left">{{ rizikKks }}</div>
@@ -292,6 +304,7 @@
               <div class="col-xs-4">Rizik BMI & BFP</div>
               <div class="col-xs-8  pull-left">{{ rizikBMI }}</div>
             </div>
+            <hr>
             <div class="row">
               <div class="col-xs-4">Ukupni rizik</div>
               <div class="col-xs-8  pull-left">{{ rizikUkupni }}</div>
@@ -300,9 +313,10 @@
               <div class="col-xs-4">Ukupni rizik (%)</div>
               <div class="col-xs-8  pull-left">{{ rizikUkupniPostotak }}%</div>
             </div>
+            <hr>
             <div class="row">
-              <div class="col-xs-4">Ukupni rizik poruka</div>
-              <div class="col-xs-8  pull-left">{{ rizikUkupniPoruka }}</div>
+              <div class="col-xs-12">Ukupni rizik poruka</div>
+              <div class="col-xs-12  pull-left">{{ rizikUkupniPoruka }}</div>
             </div>
 
             <br>
