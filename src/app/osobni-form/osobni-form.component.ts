@@ -18,7 +18,7 @@ export class OsobniFormComponent implements OnInit {
 
   spolovi: any[] = [
     { key: 'm', name: 'Muškarac'},
-    { key: 'ž', name: 'Žena'},
+    { key: 'f', name: 'Žena'},
   ];
 
   osobniPodaci: Osobni = new Osobni();
