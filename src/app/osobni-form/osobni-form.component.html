@@ -150,7 +150,7 @@
               </div>
             </div>
 
-            <button type="button" class="btn btn-primary" (click)="ponistiUnos(); heroForm.reset()">Poništi</button>
+            <button type="button" class="btn btn-primary" (click)="ponistiUnos()">Poništi</button>
             <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid"
             (click)="racunajPrikazi()"
             >Dalje</button>
@@ -175,11 +175,11 @@
               <div class="col-xs-4">Masa</div>
               <div class="col-xs-8  pull-left">{{ osobniPodaci.masa }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="osobniPodaci.struk">
               <div class="col-xs-4">Struk</div>
               <div class="col-xs-8  pull-left">{{ osobniPodaci.struk }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="osobniPodaci.bokovi">
               <div class="col-xs-4">Bokovi</div>
               <div class="col-xs-8  pull-left">{{ osobniPodaci.bokovi }}</div>
             </div>
@@ -187,7 +187,7 @@
               <div class="col-xs-4">Glukoza</div>
               <div class="col-xs-8  pull-left">{{ krvnaSlika.glukoza }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="krvnaSlika.inzulin">
               <div class="col-xs-4">Inzulin</div>
               <div class="col-xs-8  pull-left">{{ krvnaSlika.inzulin }}</div>
             </div>
@@ -229,17 +229,17 @@
             <div class="row">
               <div class="col-xs-4">BodyFatPostotak poruka:</div>
               <div class="col-xs-8  pull-left">{{ bodyFatPostotakPoruka }}</div>
+              <hr>
             </div>
-            <hr>
             <div class="row" *ngIf="whr">
               <div class="col-xs-4">Vaš WHR</div>
               <div class="col-xs-8  pull-left">{{ whr.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="whr">
               <div class="col-xs-4">WHR poruka</div>
               <div class="col-xs-8  pull-left">{{ whrPoruka }}</div>
+              <hr>
             </div>
-            <hr>
             <div class="row" *ngIf="whr2">
               <div class="col-xs-4">Vaš WHR2</div>
               <div class="col-xs-8  pull-left">{{ whr2.toFixed(2) }}</div>
@@ -249,20 +249,20 @@
               <div class="col-xs-4">Homa IR</div>
               <div class="col-xs-8  pull-left">{{ homaIr.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="homaIr">
               <div class="col-xs-4">Homa IR poruka</div>
               <div class="col-xs-8  pull-left">{{ homaIrPoruka }}</div>
+              <hr>
             </div>
-            <hr>
             <div class="row" *ngIf="homaBeta">
               <div class="col-xs-12">Homa Beta</div>
               <div class="col-xs-12  pull-left">{{ homaBeta.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="homaBeta">
               <div class="col-xs-12">Homa Beta poruka</div>
               <div class="col-xs-12  pull-left">{{ homaBetaPoruka }}</div>
+              <hr>
             </div>
-            <hr>
             <div class="row">
               <div class="col-xs-12">Glukoza poruka</div>
               <div class="col-xs-12  pull-left">{{ glukozaPoruka }}</div>
@@ -314,7 +314,7 @@
               <div class="col-xs-8  pull-left">{{ rizikUkupniPostotak }}%</div>
             </div>
             <hr>
-            <div class="row">
+            <div class="row"  *ngIf="krvnaSlika.inzulin">
               <div class="col-xs-12">Ukupni rizik poruka</div>
               <div class="col-xs-12  pull-left">{{ rizikUkupniPoruka }}</div>
             </div>

@@ -26,7 +26,21 @@ stupanjTrigliceridi: number;
       ' Rizik za razvoj kardiovaskularnih bolesti: Normalan';
     	this.stupanjGlukoza = 1;
     } else if (6.5 <= krvnaSlika.glukoza && krvnaSlika.glukoza < 8.5) {
-      porukaGlukoza = 'Vrijednost iznad referentnih vrijednosti.< 8.5';
+      porukaGlukoza = 'Vrijednost iznad referentnih vrijednosti. '+
+      ' Nalazite se u hiperglikemiji.'+
+      ' Rizik za razvoj dijabetesa tipa 2: Visok'+
+      ' Rizik za razvoj kardiovaskularnih bolesti: Visok'+
+      ' Vaša razina glukoze u krvi je visoka i zahtjeva hitno djelovanje!'+
+      ' Nekontrolirana hiperglikemija u kratkom roku dovodi do dijabetesa tipa 2,'+
+      ' visokog krvnog tlaka, debljanja, metaboličkog sindroma i raznih drugih bolesti.'+
+      ' Stoga je potrebno djelovati na vrijeme.'+
+      ' Za snižavanje glukoze u krvi i sprječavanje razvoja dijabetesa tipa 2'+
+      ' pomoći će Vam Salengei Active Resveratrol kapsule sa 100% prirodnim ekstraktom'+
+      ' korijena japanskog dvornika. Ovaj proizvod aktivira posebne GLUT4 receptore na'+
+      ' stanicama i tako potiče unos glukoze u stanicu, i snižavanje njene razine u krvi.'+
+      ' Salengei Active Resveratrol možete kupiti ovdje ili u našoj trgovini u Lovretskoj 10 u Splitu.'+
+      ' Za više informacija o proizvodu i savjete o načinu kontrole gukoze u krvi nazovite'+
+      ' 021 688 888 ili nas kontaktirajte mailom na nutricionist@mcanaliza.org';
     	this.stupanjGlukoza = 2;
     } else {
       porukaGlukoza = 'Vrijednost iznad referentnih vrijednosti. '+
