@@ -3,7 +3,7 @@
     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
       <form role="form" action="" method="post" class="f1">
         <div [hidden]="submitted">
-          <h2>Osobni podaci:</h2>
+          <h3>Osobni podaci:</h3>
           {{ diagnostic }}
           <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
             TODO: remove this: {{ osobniPodaci.spol }}
@@ -90,7 +90,7 @@
               </div>
             </div>
 
-            <h2>Biokemijski i imunokemijski parametri:</h2>
+            <h3>Biokemijski i imunokemijski parametri:</h3>
             <div class="f1">
               <div class="form-group">
                 <label for="glukoza">Glukoza</label>
