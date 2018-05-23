@@ -16,6 +16,7 @@ import { WhrService } from './whr.service';
 import { HomaService } from './homa.service';
 import { KrvnaSlikaService } from './krvna-slika.service';
 import { KalkulatorRizikaService } from './kalkulatorRizika.service';
+import { SamobrojeviDirective } from './samobrojevi.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { KalkulatorRizikaService } from './kalkulatorRizika.service';
     RezultatiComponent,
     MembersComponent,
     NalazComponent,
-    OsobniFormComponent
+    OsobniFormComponent,
+    SamobrojeviDirective
   ],
   imports: [
     BrowserModule,

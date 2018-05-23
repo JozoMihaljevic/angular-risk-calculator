@@ -17,7 +17,7 @@ stupanjBFP: number;
     return bmi;
   }
 
-  getBodyFatPostotak(osobni: Osobni, bmi) {
+  getBodyFatPostotak(osobni: Osobni, bmi: any) {
   	let bodyFatPostotak;
 
     if (osobni.spol == 'm') {
