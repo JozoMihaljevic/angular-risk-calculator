@@ -60,11 +60,14 @@ stupanjHomaBeta: number;
     return porukaHomaBeta;
 	}
 
-	getRizikHoma() {
+	getRizikHoma(krvnaSlika: KrvnaSlika) {
 		let stupanjRizikaHoma;
+    if(krvnaSlika.inzulin == null) {
+      stupanjRizikaHoma = 0;
+    } else {
+      stupanjRizikaHoma = this.stupanjHomaIr + this.stupanjHomaBeta;
+    }
 
-		stupanjRizikaHoma = this.stupanjHomaIr + this.stupanjHomaBeta;
-		
 		console.log(stupanjRizikaHoma);
 
 		return stupanjRizikaHoma;

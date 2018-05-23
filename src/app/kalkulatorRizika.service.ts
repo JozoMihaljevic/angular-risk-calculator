@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { KrvnaSlika } from './krvnaslika';
 //import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -162,8 +163,14 @@ ukupniRizikPostotak: number;
     return ukupniRizikPoruka;
   }
 
-  racunajUkupniRizikPostotak() {
-  	this.ukupniRizikPostotak = this.ukupniRizik/36;
+  racunajUkupniRizikPostotak(krvnaSlika: KrvnaSlika) {
+  	if (krvnaSlika.inzulin == null) {
+        this.ukupniRizikPostotak = (this.ukupniRizik/28)*100;
+      } else {
+        this.ukupniRizikPostotak = (this.ukupniRizik/36)*100;
+      }
+      console.log(this.ukupniRizik);
+    console.log(krvnaSlika.inzulin);
   	return this.ukupniRizikPostotak;
   }
 }

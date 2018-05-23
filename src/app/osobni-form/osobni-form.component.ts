@@ -25,7 +25,7 @@ export class OsobniFormComponent implements OnInit {
   krvnaSlika: KrvnaSlika = new KrvnaSlika();
 
   bmi: number;
-  bodyFatPostotak: string;
+  bodyFatPostotak: number;
   preporucenaTjelesnaMasa: number;
   bodyFatPostotakPoruka: string;
   bmiPoruka: string;
@@ -166,7 +166,7 @@ export class OsobniFormComponent implements OnInit {
 
   prikaziRizik() {
     this.rizikKks = this.krvnaSlikaService.getRizikKKS();
-    this.rizikHoma = this.homaService.getRizikHoma();
+    this.rizikHoma = this.homaService.getRizikHoma(this.krvnaSlika);
     this.rizikWHR = this.whrService.getRizikWHR();
     this.rizikBMI = this.bmiService.getRizikBMIBFP();
   }
@@ -180,7 +180,7 @@ export class OsobniFormComponent implements OnInit {
   }
 
   prikaziUkupniRizikPostotak() {
-    this.rizikUkupniPostotak = this.kalkulatorRizikaService.racunajUkupniRizikPostotak();
+    this.rizikUkupniPostotak = this.kalkulatorRizikaService.racunajUkupniRizikPostotak(this.krvnaSlika);
   }
 
   onSubmit() {
