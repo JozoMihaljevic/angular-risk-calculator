@@ -167,7 +167,7 @@ export class OsobniFormComponent implements OnInit {
   prikaziRizik() {
     this.rizikKks = this.krvnaSlikaService.getRizikKKS();
     this.rizikHoma = this.homaService.getRizikHoma(this.krvnaSlika);
-    this.rizikWHR = this.whrService.getRizikWHR();
+    this.rizikWHR = this.whrService.getRizikWHR(this.osobniPodaci);
     this.rizikBMI = this.bmiService.getRizikBMIBFP();
   }
 

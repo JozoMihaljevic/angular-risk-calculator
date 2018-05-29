@@ -4,17 +4,9 @@ import { KrvnaSlika } from './krvnaslika';
 
 @Injectable()
 export class KalkulatorRizikaService {
-  //private dataObs$ = new Subject<any>();
 
-  // getData() {
-  //   return this.dataObs$;
-  // }
-
-  // updateData(fastPreview) {
-  //   this.dataObs$.next(fastPreview);
-  // }
-ukupniRizik: number;
-ukupniRizikPostotak: number;
+  ukupniRizik;
+  ukupniRizikPostotak;
 
   racunajUkupniRizik(rizikKks, rizikHoma, rizikWHR, rizikBMI) {
     this.ukupniRizik = rizikBMI + rizikWHR + rizikHoma + rizikKks;
@@ -165,9 +157,9 @@ ukupniRizikPostotak: number;
 
   racunajUkupniRizikPostotak(krvnaSlika: KrvnaSlika) {
   	if (krvnaSlika.inzulin == null) {
-        this.ukupniRizikPostotak = (this.ukupniRizik/28)*100;
+        this.ukupniRizikPostotak = ((this.ukupniRizik/28)*100).toFixed(0);
       } else {
-        this.ukupniRizikPostotak = (this.ukupniRizik/36)*100;
+        this.ukupniRizikPostotak = ((this.ukupniRizik/36)*100).toFixed(0);
       }
       console.log(this.ukupniRizik);
     console.log(krvnaSlika.inzulin);

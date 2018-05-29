@@ -256,10 +256,10 @@ stupanjTrigliceridi: number;
   	let stupanjRizikaKks;
 
   	stupanjRizikaKks = 	this.stupanjGlukoza
-											+ this.stupanjUkupniKolesterol
-											+	this.stupanjLdlKolesterol
-											+	this.stupanjHdlKolesterol
-											+	this.stupanjTrigliceridi
+    + this.stupanjUkupniKolesterol
+    +	this.stupanjLdlKolesterol
+    +	this.stupanjHdlKolesterol
+    +	this.stupanjTrigliceridi;
 
 		console.log(stupanjRizikaKks);
 

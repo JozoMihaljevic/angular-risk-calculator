@@ -13,8 +13,14 @@ stupanjWHR: number;
 stupanjWHR2: number;
 
 	getWhr(osobni: Osobni) {
-		let whr = osobni.struk/osobni.bokovi;
-		return whr;
+		let whr;
+
+		if (osobni.bokovi == null) {
+			return whr = '';
+		} else {
+			whr = osobni.struk/osobni.bokovi;
+			return whr;
+		}
 	}
 
 	whrPoruka (osobni: Osobni, whr) {
@@ -85,10 +91,15 @@ stupanjWHR2: number;
 		return whr2;
 	}
 	
-	getRizikWHR() {
+	getRizikWHR(osobni: Osobni) {
 		let stupanjRizikaWHR;
 
-		stupanjRizikaWHR = this.stupanjWHR + this.stupanjWHR2;
+		if (osobni.struk == null || osobni.bokovi == null) {
+			stupanjRizikaWHR = 0;
+		}
+		else {
+			stupanjRizikaWHR = this.stupanjWHR + this.stupanjWHR2;
+		}
 
 		console.log(stupanjRizikaWHR);
 

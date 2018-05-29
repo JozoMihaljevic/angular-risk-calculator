@@ -229,47 +229,65 @@
             </div>
             <div class="row">
               <div class="col-xs-4">Dob</div>
-              <div class="col-xs-8  pull-left">{{ osobniPodaci.dob }}</div>
+              <div class="col-xs-8  pull-left">{{ osobniPodaci.dob }} godina</div>
             </div>
             <div class="row">
               <div class="col-xs-4">Visina</div>
-              <div class="col-xs-8  pull-left">{{ osobniPodaci.visina }}</div>
+              <div class="col-xs-8  pull-left">{{ osobniPodaci.visina }} cm</div>
             </div>
             <div class="row">
               <div class="col-xs-4">Masa</div>
-              <div class="col-xs-8  pull-left">{{ osobniPodaci.masa }}</div>
+              <div class="col-xs-8  pull-left">{{ osobniPodaci.masa }} kg</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="osobniPodaci.struk; else strukNedostaje">
               <div class="col-xs-4">Struk</div>
-              <div class="col-xs-8  pull-left">{{ osobniPodaci.struk }}</div>
+              <div class="col-xs-8  pull-left">{{ osobniPodaci.struk }} cm</div>
             </div>
-            <div class="row">
+            <ng-template #strukNedostaje>
+              <div class="row">
+                <div class="col-xs-4">Struk</div>
+                <div class="col-xs-8  pull-left"> nedostaje parametar </div>
+              </div>
+            </ng-template>
+            <div class="row" *ngIf="osobniPodaci.bokovi; else bokoviNedostaje">
               <div class="col-xs-4">Bokovi</div>
-              <div class="col-xs-8  pull-left">{{ osobniPodaci.bokovi }}</div>
+              <div class="col-xs-8  pull-left">{{ osobniPodaci.bokovi }} cm</div>
             </div>
+            <ng-template #bokoviNedostaje>
+              <div class="row">
+                <div class="col-xs-4">Bokovi</div>
+                <div class="col-xs-8  pull-left"> nedostaje parametar </div>
+              </div>
+            </ng-template>
             <div class="row">
               <div class="col-xs-4">Glukoza</div>
-              <div class="col-xs-8  pull-left">{{ krvnaSlika.glukoza }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.glukoza }} mmol/L</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="krvnaSlika.inzulin; else inzulinNedostaje">
               <div class="col-xs-4">Inzulin</div>
-              <div class="col-xs-8  pull-left">{{ krvnaSlika.inzulin }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.inzulin }} pmol/L</div>
             </div>
+            <ng-template #inzulinNedostaje>
+              <div class="row">
+                <div class="col-xs-4">Inzulin</div>
+                <div class="col-xs-8  pull-left"> nedostaje parametar </div>
+              </div>
+            </ng-template>
             <div class="row">
               <div class="col-xs-4">Ukupni kolesterol</div>
-              <div class="col-xs-8  pull-left">{{ krvnaSlika.ukupnikol }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.ukupnikol }} mmol/L</div>
             </div>
             <div class="row">
               <div class="col-xs-4">LDL kolesterol</div>
-              <div class="col-xs-8  pull-left">{{ krvnaSlika.ldlkol }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.ldlkol }} mmol/L</div>
             </div>
             <div class="row">
               <div class="col-xs-4">HDL kolesterol</div>
-              <div class="col-xs-8  pull-left">{{ krvnaSlika.hdlkol }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.hdlkol }} mmol/L</div>
             </div>
             <div class="row">
               <div class="col-xs-4">Trigliceridi</div>
-              <div class="col-xs-8  pull-left">{{ krvnaSlika.trigliceridi }}</div>
+              <div class="col-xs-8  pull-left">{{ krvnaSlika.trigliceridi }} mmol/L</div>
             </div>
 
             <div class="row" *ngIf="bmi">
@@ -297,7 +315,7 @@
               <div class="col-xs-4">Vaš WHR</div>
               <div class="col-xs-8  pull-left">{{ whr.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="whr">
               <div class="col-xs-4">WHR poruka</div>
               <div class="col-xs-8  pull-left">{{ whrPoruka }}</div>
             </div>
@@ -305,17 +323,17 @@
               <div class="col-xs-4">Vaš WHR2</div>
               <div class="col-xs-8  pull-left">{{ whr2.toFixed(2) }}</div>
             </div>
-            <p>HOMA – IR je pokazatelj osjetljivosti stanica na djelovanje inzulina te marker inzulinske
-              rezistencije, a HOMA – β je marker koji daje uvid u aktivnost beta – Langerhansonovih otočića
-              odgovornih za proizvodnju inzulina u gušterači.
-              <br>Ova dva parametra se računaju različitim omjerima
-              glukoze i inzulina i predstavljaju jasan pokazatelj nastanka dijabetesa tipa 2 i do 10 godina prije
-              pojave prvih simptoma i bolesti.</p>
+              <p *ngIf="homaIr">HOMA – IR je pokazatelj osjetljivosti stanica na djelovanje inzulina te marker inzulinske
+                rezistencije, a HOMA – β je marker koji daje uvid u aktivnost beta – Langerhansonovih otočića
+                odgovornih za proizvodnju inzulina u gušterači.
+                <br>Ova dva parametra se računaju različitim omjerima
+                glukoze i inzulina i predstavljaju jasan pokazatelj nastanka dijabetesa tipa 2 i do 10 godina prije
+                pojave prvih simptoma i bolesti.</p>
             <div class="row" *ngIf="homaIr">
               <div class="col-xs-4">Homa IR</div>
               <div class="col-xs-8  pull-left">{{ homaIr.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="homaIr">
               <div class="col-xs-4">Homa IR poruka</div>
               <div class="col-xs-8  pull-left">{{ homaIrPoruka }}</div>
             </div>
@@ -323,7 +341,7 @@
               <div class="col-xs-4">Homa Beta</div>
               <div class="col-xs-8  pull-left">{{ homaBeta.toFixed(2) }}</div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="homaBeta">
               <div class="col-xs-4">Homa Beta poruka</div>
               <div class="col-xs-8  pull-left">{{ homaBetaPoruka }}</div>
             </div>
@@ -371,10 +389,17 @@
               <div class="col-xs-4">Ukupni rizik (%)</div>
               <div class="col-xs-8  pull-left">{{ rizikUkupniPostotak }}%</div>
             </div>
-            <div class="row">
+            <div class="row"
+            *ngIf="krvnaSlika.inzulin && osobniPodaci.struk && osobniPodaci.bokovi;
+            else ukupniRizikNedostajeParametar">
               <div class="col-xs-12">Ukupni rizik poruka</div>
               <div class="col-xs-12  pull-left">{{ rizikUkupniPoruka }}</div>
             </div>
+            <ng-template #ukupniRizikNedostajeParametar>
+              <div class="row">
+                <p>Za opis potpunog rizika potrebno je unijeti sve parametre</p>
+              </div>
+            </ng-template>
 
             <br>
             <button class="btn btn-primary" (click)="submitted=false">Natrag</button>
