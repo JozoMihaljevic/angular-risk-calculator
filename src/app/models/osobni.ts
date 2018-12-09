@@ -8,7 +8,7 @@ export class Osobni {
   public bokovi: number;
   public spol: Spol;
 
-	constructor() {
+  constructor() {
     this.spol = Spol.Muškarac;
   }
 }

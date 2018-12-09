@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Osobni } from './osobni';
+import { Osobni } from '../models/osobni';
 
 @Injectable()
 export class BmiService {
@@ -9,36 +9,36 @@ export class BmiService {
    * @param {Osobni} osobni
    */
 
-stupanjBMI: number;
-stupanjBFP: number;
+  stupanjBMI: number;
+  stupanjBFP: number;
 
   getBmi(osobni: Osobni) {
-    let bmi = osobni.masa/((osobni.visina/100) * (osobni.visina/100));
+    const bmi = osobni.masa / ((osobni.visina / 100) * (osobni.visina / 100));
     return bmi;
   }
 
   getBodyFatPostotak(osobni: Osobni, bmi: any) {
-  	let bodyFatPostotak;
+    let bodyFatPostotak;
 
-    if (osobni.spol == 'm') {
+    if (osobni.spol === 'm') {
       bodyFatPostotak = ((1.2 * bmi) + (0.23 * osobni.dob) - 5.4 - 10.8).toFixed(0);
     } else {
       bodyFatPostotak = ((1.2 * bmi) + (0.23 * osobni.dob) - 5.4).toFixed(0);
     }
-    	return bodyFatPostotak;
+    return bodyFatPostotak;
   }
 
   getPreporucenaTjelesnaMasa(osobni: Osobni) {
-  	let preporucenaTjelesnaMasa;
-    preporucenaTjelesnaMasa = (((osobni.visina*osobni.visina)/10000) * 21.75).toFixed(0);
-  	return preporucenaTjelesnaMasa;
+    let preporucenaTjelesnaMasa;
+    preporucenaTjelesnaMasa = (((osobni.visina * osobni.visina) / 10000) * 21.75).toFixed(0);
+    return preporucenaTjelesnaMasa;
   }
 
   bmiPoruka(bmi) {
-  	let porukaBmi: string;
-		if (bmi <= 18.4) {
+    let porukaBmi: string;
+    if (bmi <= 18.4) {
       porukaBmi = 'Tjelesna masa ispod preporučene, rizik u odnosu na BMI: Nizak';
-      this.stupanjBMI = 0; 
+      this.stupanjBMI = 0;
     } else if (18.4 < bmi && bmi <= 24.9) {
       porukaBmi = 'Idealna tjelesna masa, rizik u odnosu na BMI: Normalan';
       this.stupanjBMI = 0;
@@ -59,9 +59,9 @@ stupanjBFP: number;
   }
 
   bodyFatPostotakPoruka(bodyFatPostotak, osobni: Osobni) {
-  	let porukaBodyFatPostotak: string;
-  	// za muškarce:
-    if (osobni.spol == 'm') {
+    let porukaBodyFatPostotak: string;
+    // za muškarce:
+    if (osobni.spol === 'm') {
       if (bodyFatPostotak <= 6) {
         porukaBodyFatPostotak = 'Rizik za nastanak kardiovaskularnih bolesti u odnosu na postotak tjelesnih masti: Nizak';
         this.stupanjBFP = 0;

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Osobni }    from '../osobni';
-import { KrvnaSlika } from '../krvnaslika';
-import { BmiService } from '../bmi.service';
-import { WhrService } from '../whr.service';
-import { HomaService } from '../homa.service';
-import { KrvnaSlikaService } from '../krvna-slika.service';
-import { KalkulatorRizikaService } from '../kalkulatorRizika.service';
+import { Osobni } from '../models/osobni';
+import { KrvnaSlika } from '../models/krvnaslika';
+import { BmiService } from '../services/bmi.service';
+import { WhrService } from '../services/whr.service';
+import { HomaService } from '../services/homa.service';
+import { KrvnaSlikaService } from '../services/krvna-slika.service';
+import { KalkulatorRizikaService } from '../services/kalkulatorRizika.service';
 
-import { Spol } from '../spol';
+import { Spol } from '../models/spol';
 
 @Component({
   selector: 'app-osobni-form',
@@ -17,8 +17,8 @@ import { Spol } from '../spol';
 export class OsobniFormComponent implements OnInit {
 
   spolovi: any[] = [
-    { key: 'm', name: 'Muškarac'},
-    { key: 'f', name: 'Žena'},
+    { key: 'm', name: 'Muškarac' },
+    { key: 'f', name: 'Žena' },
   ];
 
   osobniPodaci: Osobni = new Osobni();
@@ -48,10 +48,10 @@ export class OsobniFormComponent implements OnInit {
   rizikUkupni: number;
   rizikUkupniPostotak: number;
   rizikUkupniPoruka: string;
-  
-  
 
-  
+
+
+
   submitted = false;
 
   constructor(
@@ -100,19 +100,19 @@ export class OsobniFormComponent implements OnInit {
   }
 
   racunajBodyFatPostotak() {
-    this.bodyFatPostotak = this.bmiService.getBodyFatPostotak(this.osobniPodaci, this.bmi)
+    this.bodyFatPostotak = this.bmiService.getBodyFatPostotak(this.osobniPodaci, this.bmi);
   }
 
   racunajPreporucenaTjelesnaMasa() {
-    this.preporucenaTjelesnaMasa = this.bmiService.getPreporucenaTjelesnaMasa(this.osobniPodaci)
+    this.preporucenaTjelesnaMasa = this.bmiService.getPreporucenaTjelesnaMasa(this.osobniPodaci);
   }
 
   prikaziBmiPoruku() {
-    this.bmiPoruka = this.bmiService.bmiPoruka(this.bmi)
+    this.bmiPoruka = this.bmiService.bmiPoruka(this.bmi);
   }
 
   prikaziBodyFatPostotakPoruku() {
-    this.bodyFatPostotakPoruka = this.bmiService.bodyFatPostotakPoruka(this.bodyFatPostotak, this.osobniPodaci)
+    this.bodyFatPostotakPoruka = this.bmiService.bodyFatPostotakPoruka(this.bodyFatPostotak, this.osobniPodaci);
   }
 
   racunajWHRstrukbokovi() {
@@ -145,23 +145,23 @@ export class OsobniFormComponent implements OnInit {
   }
 
   prikaziGlukozaPoruku() {
-    this.glukozaPoruka = this.krvnaSlikaService.glukozaPoruka(this.krvnaSlika)
+    this.glukozaPoruka = this.krvnaSlikaService.glukozaPoruka(this.krvnaSlika);
   }
 
   prikaziUkupniKolesterolPoruka() {
-    this.ukupniKolesterolPoruka = this.krvnaSlikaService.ukupniKolPoruka(this.krvnaSlika)
+    this.ukupniKolesterolPoruka = this.krvnaSlikaService.ukupniKolPoruka(this.krvnaSlika);
   }
 
   prikaziLdlKolesterolPoruka() {
-    this.ldlKolesterolPoruka = this.krvnaSlikaService.ldlKolPoruka(this.krvnaSlika)
+    this.ldlKolesterolPoruka = this.krvnaSlikaService.ldlKolPoruka(this.krvnaSlika);
   }
 
   prikaziHdlKolesterolPoruka() {
-    this.hdlKolesterolPoruka = this.krvnaSlikaService.hdlKolPoruka(this.krvnaSlika, this.osobniPodaci)
+    this.hdlKolesterolPoruka = this.krvnaSlikaService.hdlKolPoruka(this.krvnaSlika, this.osobniPodaci);
   }
 
   prikaziTrigliceridiPoruka() {
-    this.trigliceridiPoruka = this.krvnaSlikaService.trigliceridiPoruka(this.krvnaSlika)
+    this.trigliceridiPoruka = this.krvnaSlikaService.trigliceridiPoruka(this.krvnaSlika);
   }
 
   prikaziRizik() {
